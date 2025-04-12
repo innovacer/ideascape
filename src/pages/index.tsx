@@ -32,8 +32,8 @@ export default function Home()  {
           <div className="mb-6">
             <RichTextEditor value={content} onChange={setContent} />
          </div>
-      <KanbanBoard />
-    </div>
+         <KanbanBoard />
+        </div>
        </main>
     </div>
   );
