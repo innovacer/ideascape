@@ -1,3 +1,4 @@
+// src/components/kanban/KanbanCard.tsx
 import { Draggable } from 'react-beautiful-dnd';
 
 export default function KanbanCard({ card, index }) {
@@ -5,12 +6,12 @@ export default function KanbanCard({ card, index }) {
     <Draggable draggableId={card.id} index={index}>
       {(provided) => (
         <div
+          className="bg-gray-100 p-3 rounded shadow"
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="p-4 bg-white rounded shadow hover:shadow-lg transition-shadow"
         >
-          <h3 className="text-md font-medium">{card.title}</h3>
+          {card.title}
         </div>
       )}
     </Draggable>
