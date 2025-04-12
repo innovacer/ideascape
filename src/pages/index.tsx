@@ -24,7 +24,12 @@ export default function Home()  {
             We're building a modern idea management system that helps you maintain your original thinking.
           </p>
         </div>
-      </main>
+          return (
+        <div className="p-4">
+        <RichTextEditor value="" onChange={(value) => console.log(value)} />
+        <KanbanBoard />
+       </div>
+       </main>
     </div>
   );
 }
