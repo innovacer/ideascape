@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import KanbanBoard from '@/components/kanban/KanbanBoard';
+import RichTextEditor from '@/components/editor/RichTextEditor';
 
 export default function Home()  {
   return (
@@ -25,10 +27,13 @@ export default function Home()  {
           </p>
         </div>
           return (
-        <div className="p-4">
-        <RichTextEditor value="" onChange={(value) => console.log(value)} />
-        <KanbanBoard />
-       </div>
+        <div className="p-4 max-w-7xl mx-auto">
+          <h1 className="text-3xl font-semibold mb-4 text-center">Ideascape</h1>
+          <div className="mb-6">
+            <RichTextEditor value={content} onChange={setContent} />
+         </div>
+      <KanbanBoard />
+    </div>
        </main>
     </div>
   );
