@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import KanbanBoard from '@/components/kanban/KanbanBoard';
 import RichTextEditor from '@/components/editor/RichTextEditor';
+import TagManager from '@/components/tags/TagManager';
 
 export default function Home()  {
   return (
@@ -34,6 +35,11 @@ export default function Home()  {
          </div>
          <KanbanBoard />
         </div>
+        // Inside your Home component return:
+        <>
+          <KanbanBoard />
+          <TagManager />
+        </>
        </main>
     </div>
   );
