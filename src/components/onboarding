@@ -1,0 +1,36 @@
+// src/components/onboarding/OnboardingModal.tsx
+import { useEffect, useState } from 'react';
+
+export default function OnboardingModal() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const hasSeen = localStorage.getItem('hasSeenOnboarding');
+    if (!hasSeen) {
+      setShow(true);
+      localStorage.setItem('hasSeenOnboarding', 'true');
+    }
+  }, []);
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg p-6 max-w-md shadow-lg">
+        <h2 className="text-2xl font-semibold mb-2">Welcome to Ideascape!</h2>
+        <p className="mb-4 text-gray-600">Here’s what you can do:</p>
+        <ul className="list-disc ml-5 text-sm text-gray-700 space-y-1">
+          <li>Create and organize your ideas using Kanban boards</li>
+          <li>Add rich notes with the editor above</li>
+          <li>Tag ideas for easy filtering</li>
+        </ul>
+        <button
+          onClick={() => setShow(false)}
+          className="mt-6 bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+        >
+          Got it!
+        </button>
+      </div>
+    </div>
+  );
+}
