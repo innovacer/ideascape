@@ -4,6 +4,7 @@ import KanbanBoard from '@/components/kanban/KanbanBoard';
 import RichTextEditor from '@/components/editor/RichTextEditor';
 import TagManager from '@/components/tags/TagManager';
 import OnboardingModal from '@/components/onboarding/OnboardingModal';
+import TimelineView from '@/components/timeline/TimelineView';
 
 export default function Home()  {
   return (
@@ -42,6 +43,7 @@ export default function Home()  {
         <>
           <KanbanBoard />
           <TagManager />
+          <TimelineView />
         </>
        </main>
     </div>
