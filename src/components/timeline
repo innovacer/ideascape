@@ -1,0 +1,35 @@
+// src/components/timeline/TimelineView.tsx
+import { useState } from 'react';
+
+type Idea = {
+  id: string;
+  title: string;
+  createdAt: string; // ISO string
+};
+
+const mockIdeas: Idea[] = [
+  { id: '1', title: 'Original Thought #1', createdAt: '2024-12-01T10:00:00Z' },
+  { id: '2', title: 'Follow-up Idea', createdAt: '2024-12-03T14:30:00Z' },
+  { id: '3', title: 'Expansion Idea', createdAt: '2025-01-05T09:00:00Z' },
+];
+
+export default function TimelineView() {
+  const [ideas] = useState<Idea[]>(mockIdeas.sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()));
+
+  return (
+    <div className="mt-8 bg-white rounded shadow p-6">
+      <h2 className="text-xl font-semibold mb-4">Timeline View</h2>
+      <div className="relative border-l-2 border-purple-300 pl-6 space-y-6">
+        {ideas.map((idea) => (
+          <div key={idea.id} className="relative">
+            <div className="absolute -left-3 w-6 h-6 bg-purple-600 rounded-full border-4 border-white shadow-md"></div>
+            <div className="bg-purple-50 p-4 rounded shadow-sm">
+              <h3 className="font-bold">{idea.title}</h3>
+              <p className="text-sm text-gray-500">{new Date(idea.createdAt).toLocaleDateString()}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
