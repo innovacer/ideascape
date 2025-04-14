@@ -3,9 +3,12 @@ import { useState } from 'react';
 import KanbanBoard from '@/components/kanban/KanbanBoard';
 import RichTextEditor from '@/components/editor/RichTextEditor';
 import TagManager from '@/components/tags/TagManager';
+import OnboardingModal from '@/components/onboarding/OnboardingModal';
 
 export default function Home()  {
   return (
+    <OnboardingModal />
+
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-teal-700">
       <Head>
         <title>Ideascape - Preserve Your Original Thinking</title>
